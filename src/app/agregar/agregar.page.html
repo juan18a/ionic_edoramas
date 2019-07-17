@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title *ngIf="!esEditable">Agregar Pelicula o Serie</ion-title>
+    <ion-title *ngIf="esEditable">Editar Pelicula o Serie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item>
+      <ion-label position="floating">Nombre:</ion-label>
+        <ion-input [(ngModel)]="movie.name" placeholder="Ingrese Nombre de la Pelicula o Serie"></ion-input>
+
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating">Descripción:</ion-label>
+      <ion-textarea [(ngModel)]="movie.description" rows="6" placeholder="Ingrese Descripcion" ></ion-textarea>
+
+</ion-item>
+
+
+<ion-item>
+    <ion-label position="floating">Genero:</ion-label>
+    <ion-select [(ngModel)]="movie.genre" value="Drama" okText="OK" cancelText="Cancelar">
+        <ion-select-option value="Drama">Drama</ion-select-option>
+        <ion-select-option value="Terror">Terror</ion-select-option>
+        <ion-select-option value="Romance">Romance</ion-select-option>
+        <ion-select-option value="Comedia">Comedia</ion-select-option>
+
+
+      </ion-select>
+
+</ion-item>
+
+
+<ion-item>
+    <ion-label position="floating">Año:</ion-label>
+    <ion-input  [(ngModel)]="movie.year" type="number"  placeholder="Ingrese el Año"></ion-input>
+
+</ion-item>
+
+<ion-item>
+    <ion-label position="floating">Duración:</ion-label>
+    <ion-input  [(ngModel)]="movie.duration" placeholder="Ingrese Duración"></ion-input>
+
+</ion-item>
+
+<br>
+<ion-button expand="block" *ngIf="!esEditable" (click)="guardar()">   <ion-icon slot="start" name="send"></ion-icon>Guardar</ion-button>
+<ion-button expand="block" *ngIf="esEditable" (click)="editar()" >  
+   <ion-icon slot="start" name="send"></ion-icon>Actualizar</ion-button>
+</ion-list>
+</ion-content>

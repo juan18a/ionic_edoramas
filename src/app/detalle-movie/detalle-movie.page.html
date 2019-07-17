@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title *ngIf="cargo" >{{ movie.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+    <img *ngIf="!cargo" src="https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif" alt="">
+
+
+    <div *ngIf="cargo">
+        <p>{{ movie.description }}</p>
+        <p>Genero: {{ movie.genre }}</p>
+        <p>Año: {{ movie.year }}</p>
+        <p>Duración: {{ movie.duration }}</p>
+    </div>
+
+</ion-content>

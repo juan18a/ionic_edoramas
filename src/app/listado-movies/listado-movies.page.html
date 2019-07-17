@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Movies</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card *ngFor="let movie of movies; let indice = index">
+        <ion-card-header>
+        
+          <ion-card-title>{{ movie.name }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{ movie.description }}
+        
+       
+          <p> <strong>Genero:</strong> {{ movie.genre }}</p>
+          <p> <strong>Año:</strong> {{ movie.year }}</p>
+          <p> <strong>Duración:</strong>{{ movie.duration }}</p>
+          <p> <strong>Creado:</strong>{{ movie.created_at | date }}</p>
+        
+          <ion-buttons slot="start">
+          <ion-button  color="dark" [routerLink]="'/detalle-movie/' +  movie.id " shape="round" fill="solid" >Detalles</ion-button>
+          <ion-button  color="primary" (click)="editar(movie)" shape="round" fill="solid" >Editar</ion-button>
+          <ion-button  color="danger" shape="round" fill="solid" (click)="eliminarMovie(movie.id, indice)" >Eliminar</ion-button>
+        </ion-buttons>
+        </ion-card-content>
+      </ion-card>
+
+
+
+
+
+
+</ion-content>
